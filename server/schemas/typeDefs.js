@@ -34,7 +34,7 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     logIn(email: String!, password: String!): Auth  
-    score(input: ScoreInput!): Score
+    newScore(input: ScoreInput!): Score
   }
 `;
 
