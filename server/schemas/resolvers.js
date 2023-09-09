@@ -3,26 +3,43 @@ const { Score, User } = require("../models");
 const resolvers = {
   Query: {
     Score: async () => {
-      return await Score.find({}).populate({
-        score: "",
-        date: "",
-        teammates: "",
-        userID: "",
-      });
+      return await Score.find();
     },
   },
   Mutation: {
-    addSchool: async (parent, { name, location, studentCount }) => {
-      return await School.create({ name, location, studentCount });
+    addUser: async (parent, { username, email, password }) => {
+      return await User.create({ username, email, password });
     },
-    updateClass: async (parent, { id, building }) => {
-      // Find and update the matching class using the destructured args
-      return await Class.findOneAndUpdate(
-        { _id: id },
-        { building },
-        // Return the newly updated object instead of the original
-        { new: true }
-      );
+
+    addScore: async (parent, { score }, context) => {
+      if (context.user) {
+        const score = await Score.create({
+          score,
+          userId: context.user._id,
+        });
+
+        return score;
+      }
+      throw AuthenticationError;
+      ("You need to be logged in!");
+    },
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw AuthenticationError;
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw AuthenticationError;
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
     },
   },
 };
