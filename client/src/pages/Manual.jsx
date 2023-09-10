@@ -1,11 +1,4 @@
-import React, { useState } from "react";
-// import "./Page.css";
-
 const Manual = () => {
-  const [cypherTable, setCypherTable] = useState("");
-  const [wordHint, setWordHint] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
-
   const greek = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩσς";
   const alphabet = "ZKFYPEXTRNGQLUAMSIJBCODWVH";
 
