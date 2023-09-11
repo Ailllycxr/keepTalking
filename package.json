@@ -17,6 +17,7 @@
     "concurrently": "^5.3.0"
   },
   "dependencies": {
-    "@freakycoder/react-native-button": "^1.0.4"
+    "@freakycoder/react-native-button": "^1.0.4",
+    "react-particle-effect-button": "^1.0.1"
   }
 }
