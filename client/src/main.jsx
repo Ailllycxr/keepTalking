@@ -7,14 +7,14 @@ import Home from "./pages/Home.jsx";
 import GameWrapper from "./components/GameWrapper.jsx";
 import Scores from "./pages/Scores.jsx";
 import Manual from "./pages/Manual.jsx";
+import Error from "./pages/Error.jsx";
+import AboutDev from "./pages/AboutDev.jsx"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: (
-      <h1>Can be replcaed with actual error page or just return this</h1>
-    ),
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
         path: "/scores",
         element: <Scores />,
       },
+      {
+        path: "/about",
+        element: <AboutDev />
+      }
     ],
   },
 ]);

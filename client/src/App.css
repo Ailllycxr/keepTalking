@@ -101,6 +101,10 @@ td {
   animation: borderShine 2s infinite;
 }
 
+.dev-link {
+  text-decoration: none;
+}
+
 @keyframes borderShine {
   0% {
     border-color: #24dd8d;

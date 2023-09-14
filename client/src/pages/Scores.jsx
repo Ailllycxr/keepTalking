@@ -33,7 +33,7 @@ export default function Scores() {
                 <div className="col-4"> {index + 1}</div>
                 <div className="col-4 text-left">
                   {" "}
-                  {score.user.username}:{score.score}{" "}
+                  {score.user.username}: {score.score}{" "}
                 </div>
                 <div className="col-4 text-center purple-text">
                   {" "}

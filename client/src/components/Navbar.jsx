@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab,} from 'react-bootstrap';
+import { Navbar, Nav, Container, Modal, Tab, } from 'react-bootstrap';
 import SignUp from './Signup';
 import Login from './Login';
 import Auth from '../utils/auth';
@@ -19,6 +19,7 @@ const AppNavbar = () => {
           </Navbar.Brand>
           <Nav>
             <Nav.Link as={Link} to='/scores'>Scores</Nav.Link>
+            <Nav.Link as={Link} to='/about'>About</Nav.Link>
             {Auth.loggedIn() ? (
               <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
             ) : (
@@ -26,10 +27,10 @@ const AppNavbar = () => {
             )}
           </Nav>
         </Container>
-      </Navbar>
+      </Navbar >
 
       {/* Modal Layout */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      < Modal show={showModal} onHide={() => setShowModal(false)}>
         <Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>
             {/* Choose between Login and Signup Form */}
@@ -55,7 +56,7 @@ const AppNavbar = () => {
             </Tab.Content>
           </Modal.Body>
         </Tab.Container>
-      </Modal>
+      </Modal >
 
     </>
   )
